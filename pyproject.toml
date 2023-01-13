@@ -4,9 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Anthony Dawson <anthonypdawson@gmail.com>"]
 readme = "README.md"
-repository = ""
+repository = "https://github.com/anthonypdawson/py_mac_io"
 packages = [{ include = "pymacio" }]
 
+[project.scripts]
+pymacio_request = "pymacio:main"
 
 [tool.poetry.dependencies]
 python = "^3.9"
