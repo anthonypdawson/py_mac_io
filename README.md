@@ -38,6 +38,8 @@ You can also set the following environment variables:
    1. `curl -sSL https://install.python-poetry.org | python - --version 1.3.2`
    2. `export PATH="$POETRY_HOME/bin:$PATH"`
 4. Run the app
-   1. To see usage: `poetry run pymacio -h`
-   2. Query company name: `poetry run pymacio 00:00:00:00:00:00`
-   3. Dump entire JSON response: `poetry run pymacio --full 00:00:00:00:00:00`
+   1. Install dependencies
+      1. `poetry install --no-root`
+   2. See usage: `poetry run pymacio -h`
+   3. Query company name: `poetry run pymacio 00:00:00:00:00:00`
+   4. Dump entire JSON response: `poetry run pymacio --full 00:00:00:00:00:00`
