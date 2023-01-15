@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 class PyMacIo:
-    mac_pattern = r'^([a-fA-F0-9]{2}:){5}[a-fA-F0-9]{2}$'
+    mac_pattern = r'^(?:(?:[0-9A-Fa-f]{2}(?=([-:]|))(?:\1[0-9A-Fa-f]{2}){5}))$'
 
     def __init__(self, mac_address: str, **kwargs):
         self.environment = MacIoEnvironment(**kwargs)
@@ -37,13 +37,13 @@ class PyMacIo:
         print(f"Company name: {company_name}")
 
     def is_valid_mac_address(self, mac_address: str) -> bool:
-        return re.match(self.mac_pattern, mac_address)
+        return re.match(self.mac_pattern, mac_address) is not None
 
     def make_request(self, mac_address=None) -> dict:
         if not mac_address:
             mac_address = self.mac_address
 
-        if not self.is_valid_mac_address(mac_address):
+        if self.is_valid_mac_address(mac_address) is False:
             logger.error(f"Invalid mac address: {mac_address}")
             exit(1)
 
