@@ -16,4 +16,4 @@ COPY pymacio ./pymacio/
 
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-interaction --no-ansi
-ENTRYPOINT ["poetry", "run", "pymacio"]
+ENTRYPOINT ["poetry", "--quiet", "run", "pymacio"]
